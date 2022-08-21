@@ -6,24 +6,36 @@ for (var i=25;i>0;i--){
 }
 
 function stopSliding(slider){
-    var sliderCurrent = document.getElementById('slider'+(slider))
-    var sliderAbove = document.getElementById('slider'+(slider+1))
-    var sliderBelow = document.getElementById('slider'+ (slider-1 ))
+    var sliderCurrent = document.getElementById('slider'.concat(slider))
+    var sliderAbove = document.getElementById('slider'.concat(slider+1))
+    if(slider ==1){
+        var sliderBelow = sliderCurrent
+    }else{
+        var sliderBelow = document.getElementById('slider'+ (slider-1 ))
+    }
+    
     var left = window.getComputedStyle(sliderCurrent).getPropertyValue('left');
     sliderCurrent.classList.remove('animate');
-    // sliderCurrent.style.left = left;
-    // var width = parseInt(window.getComputedStyle(sliderCurrent).getPropertyValue('width'));
-    // var leftBelow = parseInt(window.getComputedStyle(sliderBelow).getPropertyValue('left'))
-    // // left = parseInt(left);
-    // var difference = left - leftBelow;
-    // var absDifference = math.abs(difference);
-    // if (difference < 0){
-    //     left = left + absDifference;
-    //     sliderCurrent.style.left = left.toString().concat("px")
-    // }else{
-    //     left = left - difference;
-    //     sliderCurrent.style.left = left.toString().concat('px');
-    // }
-    // var offset =
+    // Keeps slider where clicked
+    sliderCurrent.style.left = left;
+    var width = parseInt(window.getComputedStyle(sliderCurrent).getPropertyValue('width'));
+    var leftBelow = parseInt(window.getComputedStyle(sliderBelow).getPropertyValue('left'))
+    left = parseInt(left);
+    var difference = left - leftBelow;
+    var absDifference = Math.abs(difference);
+    //aligns sliders to the left
+    if (difference < 0){
+        left = left + absDifference;
+        sliderCurrent.style.left = left.toString().concat("px")
+    }else{
+        left = left - difference;
+        sliderCurrent.style.left = left.toString().concat('px');
+    }
+    var offset = (width - absDifference).toString().concat('px');
+    sliderCurrent.style.width = offset;
+    sliderAbove.style.width = offset;
+    sliderAbove.style.visibility = 'visible';
+    var onclick =  'stopSliding(' + (slider+1) + ')';
+    document.getElementById('btn').setAttribute('onclick', onclick);
 
 }
