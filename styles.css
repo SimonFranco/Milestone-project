@@ -1,12 +1,21 @@
+:root{
+    --width:500px;
+    --gameWidth: 600px
+}
+
 *{margin:0px;
-padding: 0;
+ padding: 0; 
+ background-color: black;
 }
 #game{
-    width: 600px;
-    height: 500px;
+    width: var(--gameWidth);
+    height: 588px;
     margin: auto;
     border: 3px solid black;
     margin-top: 50px;
+    background-color: royalblue;
+    background-image: url(./assets/pngtree-neon-grid-landscape-with-80s-retro-wave-game-style-image_1394433.jpeg) ;
+
 }
 #btn{
     font-size: 2rem;
@@ -23,20 +32,47 @@ padding: 0;
 }
 .slider{
     visibility: hidden;
-    background-color: purple;
+    background-color: black;
     height: 20px;
     width: 100px;
-    /* border: 1px solid black; */
+    border: 1.5px solid  rgb(151, 247, 252);
     position: relative;
 }
 #slider1{
     visibility: visible;
+    background-color: black;
+    border: 1.5px solid;
+    border-color:rgb(151, 247, 252);
 }
 .animate{
     animation: slide 4s infinite linear;
 }
 @keyframes slide{
     0%{ left:0px;}
-    50%{ left:500px;}
+    50%{ left:var(--width)}
     100%{ left:0px;}
 }
+#slider27{
+    width: 100%;
+    text-align: center;
+     background-color: transparent; 
+     border: none;
+    visibility: visible;
+    color: white;
+    font-size: 25px;
+}
+#slider26{
+        background-color: transparent;
+        border: none;
+}
+.modal{
+    display: 'block';
+    height: 300px;
+    width: 250px;
+    z-index: 1;
+    background-color: white;
+    display: block;
+    margin: auto;
+
+}
+
