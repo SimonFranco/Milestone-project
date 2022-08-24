@@ -58,14 +58,14 @@
      background-color: transparent; 
      border: none;
     visibility: visible;
-    color: white;
+    color:grey;
     font-size: 25px;
 }
 #slider26{
         background-color: transparent;
         border: none;
 }
-.modal{
+/* .modal{
     display: 'block';
     height: 300px;
     width: 250px;
@@ -73,6 +73,13 @@
     background-color: white;
     display: block;
     margin: auto;
+    position: relative;
+    top: -50px
+    
 
+} */
+.modal h1{
+    background-color: rgb(31, 12, 199);
+    text-align: center;
 }
 
