@@ -14,16 +14,14 @@ var aniWidth = 500;
     
     function stopSliding(slider){
         level.textContent = slider;
+        // if players gets to level 25
         if (slider== 25){
            let h12 = document.getElementById('h12');
-        //    h12.append(score - 1)
            let modal2 = document.getElementById('wonModal');
            modal2.style.display = 'block';
            level.style.visibility = 'hidden'
-        //    h2.append()
         }
         
-        var score ='Your score is '.concat(slider-1);
         var sliderCurrent = document.getElementById('slider'.concat(slider))
         var sliderAbove = document.getElementById('slider'.concat(slider+1))
         if(slider ==1){
@@ -63,19 +61,15 @@ var aniWidth = 500;
              modal1.style.display = 'block';
              sliderAbove.classList.remove('animate');
              sliderCurrent.style.visibility = 'hidden';
+             level.textContent
         }
-             
-             
- 
+             // adjusts slider size
             sliderAbove.style.visibility = 'visible';
             var offset = (width - absDifference).toString().concat('px');
             sliderCurrent.style.width = offset;
             sliderAbove.style.width = offset;
         
-        
-        console.log(aniWidth)
         aniWidth = aniWidth + absDifference;
-        console.log(aniWidth, absDifference)
         document.documentElement.style.setProperty('--width', aniWidth + 'px')
         
         var onclick =  'stopSliding(' + (slider+1) + ')';
